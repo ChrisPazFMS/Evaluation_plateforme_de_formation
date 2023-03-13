@@ -1,0 +1,8 @@
+# ignore bin
+Evaluation_training/trainingPlatform/bin
+
+# ignore settings
+Evaluation_training/trainingPlatform/.settings
+
+# ignore metadata
+Evaluation_training/.metadata/
