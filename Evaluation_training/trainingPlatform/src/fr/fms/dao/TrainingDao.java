@@ -64,8 +64,8 @@ public class TrainingDao implements Dao<Training> {
 				String conditionTraining = resultSet.getString(5);
 				double pricePerCourse = resultSet.getDouble(6);
 				int idCategory = resultSet.getInt(7);
-				training.add((new Training(idTraining, nameTraining, description, dayOfTraining, conditionTraining,  pricePerCourse,
-						idCategory)));
+				training.add((new Training(idTraining, nameTraining, description, dayOfTraining, conditionTraining,
+						pricePerCourse, idCategory)));
 			}
 		} catch (SQLException e) {
 
@@ -98,6 +98,91 @@ public class TrainingDao implements Dao<Training> {
 			e.getMessage();
 		}
 		return trainingCategory;
+	}
+
+	@Override
+	public ArrayList<Training> readAllPresentiel() {
+		ArrayList<Training> training = new ArrayList<Training>();
+		String strSql = "select * from T_Training where ConditionTraining='Presentiel';";
+
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(strSql);
+			while (resultSet.next()) {
+				int idTraining = resultSet.getInt(1);
+				String nameTraining = resultSet.getString(2);
+				String description = resultSet.getString(3);
+				int dayOfTraining = resultSet.getInt(4);
+				String conditionTraining = "\u001B[31m" + resultSet.getString(5) + "\u001B[37m";
+				double pricePerCourse = resultSet.getDouble(6);
+				int idCategory = resultSet.getInt(7);
+				training.add((new Training(idTraining, nameTraining, description, dayOfTraining, conditionTraining,
+						pricePerCourse, idCategory)));
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return training;
+	}
+
+	@Override
+	public ArrayList<Training> readAllDistanciel() {
+		ArrayList<Training> training = new ArrayList<Training>();
+		String strSql = "select * from T_Training where ConditionTraining='Distanciel';";
+
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(strSql);
+			while (resultSet.next()) {
+				int idTraining = resultSet.getInt(1);
+				String nameTraining = resultSet.getString(2);
+				String description = resultSet.getString(3);
+				int dayOfTraining = resultSet.getInt(4);
+				String conditionTraining = "\u001B[31m" + resultSet.getString(5) + "\u001B[37m";
+				double pricePerCourse = resultSet.getDouble(6);
+				int idCategory = resultSet.getInt(7);
+				training.add((new Training(idTraining, nameTraining, description, dayOfTraining, conditionTraining,
+						pricePerCourse, idCategory)));
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return training;
+	}
+
+	@Override
+	public ArrayList<Training> readAllByKeywords(String key) {
+		ArrayList<Training> training = new ArrayList<Training>();
+		String strSql = "SELECT * FROM T_Training WHERE NameTraining LIKE '%" + key + "%';";
+
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(strSql);
+			while (resultSet.next()) {
+				int idTraining = resultSet.getInt(1);
+				String nameTraining = "\u001B[31m" + resultSet.getString(2) + "\u001B[37m";
+				String description = resultSet.getString(3);
+				int dayOfTraining = resultSet.getInt(4);
+				String conditionTraining = resultSet.getString(5);
+				double pricePerCourse = resultSet.getDouble(6);
+				int idCategory = resultSet.getInt(7);
+				training.add((new Training(idTraining, nameTraining, description, dayOfTraining, conditionTraining,
+						pricePerCourse, idCategory)));
+			}
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return training;
+
 	}
 
 }

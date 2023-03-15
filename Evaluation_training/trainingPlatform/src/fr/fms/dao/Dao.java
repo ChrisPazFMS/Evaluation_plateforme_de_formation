@@ -51,9 +51,29 @@ public interface Dao<T> {
 	 * Méthode qui renvoi toutes les catégories sélectionnées des cours
 	 * 
 	 * @param id
-	 * @return Liste des catégories sélectionnées en base de la table T_Training en bdd
+	 * @return Liste des catégories sélectionnées en base de la table T_Training en
+	 *         bdd
 	 */
 
 	public ArrayList<T> readAllByCat(int id);
+
+	/**
+	 * Méthode qui renvoie tous les cours en présentiel.
+	 * 
+	 * @return
+	 */
+	public ArrayList<T> readAllPresentiel();
+
+	/**
+	 * Méthode qui renvoie tous les cours en distanciel.
+	 * 
+	 * @return
+	 */
+	public ArrayList<T> readAllDistanciel();
+	
+	/**
+	 * Méthode qui renvoie tous les cours par mots-clés.
+	 */
+	public ArrayList<T> readAllByKeywords(String key);
 
 }

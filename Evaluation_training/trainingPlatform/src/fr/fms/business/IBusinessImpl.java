@@ -28,4 +28,18 @@ public class IBusinessImpl implements IBusiness {
 		return trainingDao.readAllByCat(id);
 
 	}
+
+	@Override
+	public ArrayList<Training> readAllByPresentiel() {
+		return trainingDao.readAllPresentiel();
+	}
+
+	public ArrayList<Training> readAllByDistanciel() {
+		return trainingDao.readAllDistanciel();
+	}
+
+	@Override
+	public ArrayList<Training> readAllByKeywords(String key) {
+		return trainingDao.readAllByKeywords(key);
+	}
 }

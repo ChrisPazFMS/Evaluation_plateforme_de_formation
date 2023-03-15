@@ -56,4 +56,22 @@ public class CategoryDao implements Dao<Category> {
 		return null;
 	}
 
+	@Override
+	public ArrayList<Category> readAllPresentiel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Category> readAllDistanciel() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Category> readAllByKeywords(String key) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
